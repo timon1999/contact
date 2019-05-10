@@ -1,0 +1,19 @@
+label.error {
+    color: red;
+}
+input.error {
+    border-color: red;
+}
+select.error {
+    border-color: red;
+}
+.valid {
+    border-color: #28a745;
+}
+.valid:focus {
+    border-color: #28a745;
+    outline: none;
+}
+.red { 
+    color: red;
+}
