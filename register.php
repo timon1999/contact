@@ -2,6 +2,7 @@
     <?php
     require_once('database.php');
     require_once('functions.php');
+    $conn = open();
 
      //vorname validation serverseitig
      $check_firstname=check($_POST['firstname'], 1, 30, 'Vorname');
@@ -59,13 +60,6 @@
 
     $conn->close();
     
-    echo 'Willkommen '.'<b>'.$_POST["gender"].'</b>'.'<b>'.$_POST["firstname"].' '.'</b>'.'<b>'.$_POST["lastname"].'</b>'.'<br>';
-    echo 'Wir haben eine Bestätigungs Mail an: '.'<b>'.$_POST["email"].'</b>'.' gesendet. <br>';
-    echo ' <br>';
-
-    if($_POST["comment"]!="" && $_POST["comment"]!=" "){
-    echo 'Der folgende <b>Kommentar</b> von Ihnen wird natürlich <b>Berücksichtigt</b>: <br>';
-    echo '"'.$_POST["comment"].'"';
-    }
+    
 
     file_put_contents('test.text', $_POST, FILE_APPEND | LOCK_EX);

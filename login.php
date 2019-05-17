@@ -5,22 +5,19 @@ if (isset($_SESSION['id'])) {
     header('Location: /');
 }
 
+
 if ($_POST) {
     if (isset($_POST['email'], $_POST['password'])) {
-        include_once('database.php');
         include_once('functions.php');
-        $email = escape($_POST['email']);
-        $query = 'SELECT id, password, email FROM user WHERE email = ' . $email . ';';
-        if ($result = $conn->query($sql) === TRUE) {
-            while ($row = $result->fetch_assoc()) {
-                
-            }
+        if (login($_POST['email'], $_POST['password'])) {
+            echo 'login success';
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo 'login invalid';
         }
     } else {
-        die('Parameters missing'):
+        die('Parameters missing');
     }
 }
+
 
 ?>

@@ -4,7 +4,7 @@
 
 //connect to db using mysqli
 require_once('database.php');
-
+$conn = open();
 if (!empty($_POST['email']))
 {
     $email = $conn->real_escape_string($_POST['email']);

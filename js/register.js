@@ -5,6 +5,8 @@ jQuery.validator.addMethod(
     },
     "Value cannot be {0}"
 );
+
+var form1 = $('#form1');
 $(document).ready(function () {
     $(form1).validate({
         rules: {
@@ -106,6 +108,11 @@ $(document).ready(function () {
 
     $('#senden').on('click', function () {
         document.location.replace("login.html");
+    });
+
+    //LOGIN
+    $('#login').on('click', function () {
+        document.location.replace("contact.html");
     });
 
 });
