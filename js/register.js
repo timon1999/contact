@@ -22,7 +22,17 @@ $(document).ready(function () {
             email: {
                 required: true,
                 email: true,
-                minlength: 5
+                minlength: 5,
+                remote: {
+                    url: 'validateEmail.php',
+                    type: "post",
+                    data:
+                    {
+                        email: function () {
+                            return $('input[name="email"]').val();
+                        }
+                    }
+                }
             },
             password: {
                 required: true,
@@ -49,7 +59,8 @@ $(document).ready(function () {
             },
             email: {
                 required: "Bitte geben Sie Ihre Email-Adresse ein.",
-                email: "Bitte geben Sie eine gültige Email-Adresse ein."
+                email: "Bitte geben Sie eine gültige Email-Adresse ein.",
+                remote: "Diese Adresse wird bereits verwendet."
             },
             password: {
                 required: "Bitte geben Sie Ihr Passwort ein.",
@@ -61,7 +72,7 @@ $(document).ready(function () {
             }
         }
     });
-    $(form1).on('submit', function(e){
+    $(form1).on('submit', function (e) {
         e.preventDefault();
         // this code gets executed when the form is submitted
 
@@ -80,8 +91,8 @@ $(document).ready(function () {
                     confirmPassword: sha512($('#confirmPassword').val()),
                     comment: $('#confirmPassword').val()
                 },
-                success: function(content) {
-                    //document.location.replace('login.html');
+                success: function (content) {
+                    document.location.replace('login.html');
                 }
             });
         }
@@ -89,7 +100,11 @@ $(document).ready(function () {
         return false;
     });
 
-    $('#login-btn').on('click', function (){
+    $('#login-btn').on('click', function () {
+        document.location.replace("login.html");
+    });
+
+    $('#senden').on('click', function () {
         document.location.replace("login.html");
     });
 
