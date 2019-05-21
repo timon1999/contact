@@ -16,6 +16,7 @@ function check($value, $minlenght, $maxlength, $name) {
     return trim(htmlspecialchars($value));
   }
 
+//LOGIN
 function login($email, $password) {
   require_once('database.php');
   $conn = open();
@@ -28,7 +29,7 @@ function login($email, $password) {
   if($result->num_rows == 1) {
     $row = $result->fetch_assoc();
     // asign id & password
-    $id = $row['id'];
+    $_SESSION['id'] = $row['id'];
     $db_password = $row['password'];
 
     // check if password matches

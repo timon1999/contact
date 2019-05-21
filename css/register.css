@@ -1,4 +1,9 @@
-.container {
-    background-color: rgb(178, 196, 214);
+body {
+    background-image: url("../img/register.jpg");
     padding: 20px;
+    color: white;
+  }
+
+.container {
+    color: white;
 }

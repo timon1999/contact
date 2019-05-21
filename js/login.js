@@ -13,10 +13,13 @@ $('#loginForm').on('submit', function (e) {
             password: sha512($('#password').val())
         },
         success: function (content) {
-            document.location.replace('contact.html');
+            if (content == 1) {
+            document.location.replace('contact.php');
+            } else {
+                alert("E-Mail oder Passwort falsch!");
+            }
         }
     });
-
 
     return false;
 });
