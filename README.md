@@ -1,3 +1,2 @@
 # contact
-Kontaktbuch
-Willkommen :-) ;D
+Erfassen Sie Ihre Kontakte schnell & simpel.
